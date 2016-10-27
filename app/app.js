@@ -15,6 +15,28 @@ verbsApp.controller('verbsController', function verbsController($scope) {
   $scope.getChecked = function() {
     console.log($scope.checkboxes);   
   }
+  $scope.numLevels = 4
+
+  $scope.getLevels = function() {
+    for (var i = 0; i < 4; i ++) {
+      var currentLevel = 'Level ' + (i + 1);
+      $scope[currentLevel] = [];
+    }
+    for (var i = 0; i < $scope.vocab.length; i ++) {
+      var currentObj = $scope.vocab[i];
+      console.log(currentObj);
+      var objLevel = 'Level ' + currentObj.level;
+      if (currentObj) {
+        $scope[objLevel].push(currentObj);
+      }
+      
+    }
+    for (var i = 1; i < 5; i ++) {
+      var currentLevel = 'Level ' + i;
+      console.log(currentLevel);
+      console.log($scope[currentLevel]);
+    }
+  }
 
   $scope.levels = [{
     name: 'Level 1',
@@ -41,7 +63,7 @@ verbsApp.controller('verbsController', function verbsController($scope) {
         words: ['say', 'see', 'sing', 'sit', 'sleep', 'speak', 'spend', 'swim']
       }, {
         letter: 'T',
-        words: [' ', 'think']
+        words: ['tell', 'think']
       }
     ]
   }, {
@@ -213,7 +235,7 @@ verbsApp.controller('verbsController', function verbsController($scope) {
     'write': 'писать'
   }
 
-    $scope.words_ =[  
+    $scope.vocab =[  
      {  
         "verb":"be",
         "past":[  
