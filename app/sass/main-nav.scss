@@ -1,0 +1,18 @@
+.main-nav {
+  color: #ffffff;
+  background: #000;
+  align-self: flex-start;
+}
+.main-nav__item {
+  display: inline-block;
+  padding: 10px;
+}
+.main-nav__item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mobile	.main-nav {
+  width: 100%;
+  position: relative;
+}

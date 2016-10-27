@@ -1,0 +1,109 @@
+.choose-verbs fieldset {
+  width: calc((100% - 31px) / 3);
+  border-width: 2px;
+  border-style: solid;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.choose-verbs__letter {
+    width: 100%;
+    padding: 10px 0;
+}
+.choose-verbs input {
+	display: none;
+}
+
+.choose-verbs__section:nth-child(2) label:after,
+.choose-verbs__section:nth-child(4) label:after {
+	color: cadetblue;
+}
+
+.choose-verbs input:checked + label:after {
+	content: '✔';
+	position: absolute;
+	right: 10px;
+	
+}
+.choose-verbs__row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.choose-verbs__section:nth-child(2) label:hover {
+	background: rgba(cadetblue, 0.25);
+}
+.choose-verbs__section:nth-child(2) input:checked + label {
+	background: rgba(cadetblue, 0.15);
+}
+
+.choose-verbs__section .active {
+	&:hover {
+	  border-color: lighten(green, 17%);
+	}
+	border-color: lighten(green, 15%);
+}
+.choose-verbs__section .active label:hover {
+	background: transparent;
+	&:hover {
+		background: transparent;
+	}
+}
+.choose-verbs label {
+	display: block;
+	width: 100%;
+	padding: 7px 14px;
+	box-sizing: border-box;
+	position: relative;
+	cursor: pointer;
+}
+.translation {
+    opacity: 0;
+    transition: 1s;
+
+}
+.choose-verbs label:hover .translation{
+	opacity: 1;
+}
+.fold fieldset,
+.fold .choose-verbs__letter {
+	display: none;
+}
+
+.choose-verbs__section:nth-child(2) fieldset,
+.choose-verbs__section:nth-child(4) fieldset  {
+	border-color: cadetblue;
+	&:hover {
+		border-color: lighten(cadetblue, 15%);
+	}
+}
+.choose-verbs__section:first-child fieldset {
+    border-color: darken(#ccc, 15%);
+	&:hover {
+		border-color: darken(#ccc, 10%);
+	}
+}
+.choose-verbs__section:nth-child(3) fieldset {
+	border-color: darken(bisque, 15%);
+	&:hover {
+		border-color: darken(bisque, 10%);
+	}
+}
+
+.choose-verbs > div {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.choose-verbs {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+@media (max-width: 479px) {
+  .choose-verbs fieldset {
+    width: calc((100% - 31px) / 2);
+  }
+}
