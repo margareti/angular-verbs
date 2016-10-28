@@ -9,7 +9,7 @@
   <link href="css/style.css" rel="stylesheet">
 
   <script src="../node_modules/angular/angular.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js" charset="utf-8"></script>
 </head>
 <body ng-app = "verbs">
 	<svg class="svg-src" xmlns="http://www.w3.org/2000/svg">
@@ -24,16 +24,16 @@
 	</nav>
 	<div class="container">
 		<section class="choose-verbs" ng-controller="verbsController">
-			<div class="choose-verbs__section" ng-repeat="level in levels">
-				<h3 class="toggle-fold">{{ level.name }}
+			<div class="choose-verbs__section" ng-repeat="level in levels track by $index">
+				<h3 class="toggle-fold">Level {{ $index + 1 }}
            <button class="choose-verbs__all  button--small  button">Выбрать все</button>
            <button class="choose-verbs__clear-all  button--small  button  button--transparent">Очистить все</button>
 		  	</h3>
-		  	<div ng-repeat="content in level.contents" class="choose-verbs__row"> 
-		  		<div class="choose-verbs__letter" >{{ content.letter }}</div>
-		  		<fieldset ng-repeat = "word in content.words">
-		  		  <input type="checkbox" name="{{ word }}" id="{{ word }}" ng-model="checkboxes[word]">
-		  			<label for="{{ word }}"> {{ word }}<span class="translation">: {{ translation[word] }}</span></label>
+		  	<div ng-repeat="(key, value) in levels[$index]" class="choose-verbs__row"> 
+		  		<div class="choose-verbs__letter" >{{ key }}</div>
+		  		<fieldset ng-repeat = "word in value">
+		  		  <input type="checkbox" name="{{ word.verb }}" id="{{ word.verb }}" ng-click="toggleVerb(word)">
+		  			<label for="{{ word.verb }}"> {{ word.verb }}<span class="translation">: {{ word.russian }}</span></label>
 		  		</fieldset>
 		  	</div>
 		  	<div class="button-container  button-container--fixed" id="main-buttons" ng-if="$last">
